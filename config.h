@@ -103,8 +103,16 @@ static const char *light_down[] = { "/usr/bin/light",   "-U", "5", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ ALTKEY,                       XK_F11, spawn, {.v = downvol } },
+	{ ALTKEY,                       XK_F9,  spawn, {.v = mutevol } },
+	{ ALTKEY,                       XK_F12, spawn, {.v = upvol   } },
+  { MODKEY,                       XK_e,      spawn,          {.v = manager } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("scrot -s -F #dir#/ScreenShot.png") },
+	{ 0,                            XK_Print,  spawn,          SHCMD("scrot -F #dir#ScreenShot.png") },
+	{ MODKEY,                       XK_BackSpace,      spawn,          {.v = wlogout } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -146,6 +154,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
+	{ 0,				XF86XK_MonBrightnessUp,		spawn,	{.v = light_up} },
+	{ 0,				XF86XK_MonBrightnessDown,	spawn,	{.v = light_down} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -168,6 +178,8 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
 	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
+	{ ClkStatusText,        0,              Button4,        sigstatusbar,   {.i = 4} },
+	{ ClkStatusText,        0,              Button5,        sigstatusbar,   {.i = 5} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
