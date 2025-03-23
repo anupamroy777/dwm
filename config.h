@@ -88,8 +88,18 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
- static const char *termcmd[]  = { "st", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
+static const char *browser[] = { "firefox", NULL};
+static const char *manager[] = { "dolphin", NULL};
+static const char *wlogout[] = { "wlogout",  NULL};
+
+// Volume Control
+static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
+static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
+static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
+//Brightness Controll
+static const char *light_up[]   = { "/usr/bin/light",   "-A", "5", NULL };
+static const char *light_down[] = { "/usr/bin/light",   "-U", "5", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
