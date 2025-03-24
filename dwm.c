@@ -2384,8 +2384,6 @@ main(int argc, char *argv[])
 	if (!(dpy = XOpenDisplay(NULL)))
 		die("dwm: cannot open display");
 	checkotherwm();
-  XrmInitialize();
-  loadxrdb();
 	autostart_exec();
 	setup();
 #ifdef __OpenBSD__
